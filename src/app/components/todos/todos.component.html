@@ -1,0 +1,20 @@
+<ul class="list-group" *ngFor="let item of todos">
+   <li class="row list-group-item-flex justify-content-center bg-dark text-white p-2 mt-2">
+    <div class="col-3">
+        <input 
+        type="checkbox"
+        [checked]="item.isComplete"
+        (change)="changeToStatus(item)"
+        />
+    </div>
+    <div class="col-3">
+         <span class="text-center text-uppercase" [ngClass]="{'iscopletedtodo': item.isComplete}">{{item.title | uppercase}}</span>
+    </div>
+    <div class="col-3">
+        <span class="text-center text-uppercase">{{ item.date |date }} </span>
+    </div>
+    <div class="col-3">
+       <button class="btn btn-danger" (click)="deleteTodo(item)"> <i class="fa fa-trash" aria-hidden="true"></i></button>
+    </div>
+   </li>
+</ul>
